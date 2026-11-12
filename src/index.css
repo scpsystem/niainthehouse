@@ -1,0 +1,454 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #2b2350;
+  --grape: #6d3fc0;
+  --grape-dark: #4f2a96;
+  --cream: #fff8ec;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Baloo 2', Nunito, 'Trebuchet MS', system-ui, sans-serif;
+  color: var(--ink);
+  background: #d9c9ff;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 4px solid #ffb300;
+  outline-offset: 2px;
+}
+
+.pastel-bg {
+  background:
+    radial-gradient(circle at 15% 20%, #fff3fb 0, transparent 40%),
+    radial-gradient(circle at 85% 80%, #e1f4ff 0, transparent 45%),
+    linear-gradient(135deg, #d9c9ff, #ffd9ec 55%, #cfeeff);
+}
+
+/* ───────── Butang ───────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 56px;
+  padding: 0.5rem 1.4rem;
+  border-radius: 1.2rem;
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.6vw, 1.45rem);
+  border: 3px solid rgba(43, 35, 80, 0.85);
+  box-shadow: 0 5px 0 rgba(43, 35, 80, 0.85);
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+.btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 rgba(43, 35, 80, 0.85);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: #6d3fc0;
+  color: #fff;
+}
+.btn-green {
+  background: #17754a;
+  color: #fff;
+}
+.btn-sun {
+  background: #ffd54a;
+  color: #2b2350;
+}
+.btn-white {
+  background: #fff;
+  color: #2b2350;
+}
+.btn-sm {
+  min-height: 44px;
+  padding: 0.25rem 0.9rem;
+  font-size: 1rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 3px 0 rgba(43, 35, 80, 0.85);
+}
+
+/* ───────── Nia ───────── */
+.nia-anim {
+  transform-origin: 50% 100%;
+}
+.nia-idle {
+  animation: nia-breathe 3.2s ease-in-out infinite;
+}
+.nia-walk {
+  animation: nia-walk 0.5s ease-in-out infinite;
+}
+.nia-happy {
+  animation: nia-jump 0.55s ease-out 2;
+}
+.nia-sad {
+  animation: nia-droop 1.6s ease-in-out infinite;
+}
+.nia-hungry {
+  animation: nia-wobble 0.9s ease-in-out infinite;
+}
+.nia-pop {
+  animation: nia-pop 0.7s cubic-bezier(0.2, 1.4, 0.4, 1) 1;
+}
+.nia-wash {
+  animation: nia-wash 0.45s ease-in-out infinite;
+}
+@keyframes nia-breathe {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.012, 1.02);
+  }
+}
+@keyframes nia-walk {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2.2deg);
+  }
+  50% {
+    transform: translateY(-3.5%) rotate(2.2deg);
+  }
+}
+@keyframes nia-jump {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  25% {
+    transform: translateY(0) scale(1.05, 0.93);
+  }
+  60% {
+    transform: translateY(-9%) scale(0.97, 1.05);
+  }
+}
+@keyframes nia-droop {
+  0%,
+  100% {
+    transform: scale(1, 0.975) rotate(-1deg);
+  }
+  50% {
+    transform: scale(1, 0.96) rotate(1deg);
+  }
+}
+@keyframes nia-wobble {
+  0%,
+  100% {
+    transform: rotate(-2.5deg) scale(1, 0.985);
+  }
+  50% {
+    transform: rotate(2.5deg) scale(1.01, 0.97);
+  }
+}
+@keyframes nia-pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes nia-wash {
+  0%,
+  100% {
+    transform: rotate(7deg) translateY(1.5%);
+  }
+  50% {
+    transform: rotate(13deg) translateY(2.5%);
+  }
+}
+
+/* ───────── Kesan ───────── */
+.fx-float {
+  animation: fx-float 2.2s ease-in-out infinite;
+}
+@keyframes fx-float {
+  0% {
+    transform: translate(0, 0) scale(0.7);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(35%, -90%) scale(1.15);
+    opacity: 0;
+  }
+}
+.fx-puff {
+  animation: fx-puff 1s ease-out forwards;
+}
+@keyframes fx-puff {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+.fx-twinkle {
+  animation: fx-twinkle 1.1s ease-in-out infinite;
+}
+@keyframes fx-twinkle {
+  0%,
+  100% {
+    transform: scale(0.4) rotate(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(25deg);
+    opacity: 1;
+  }
+}
+.fx-burst {
+  animation: fx-burst 0.9s ease-out forwards;
+}
+@keyframes fx-burst {
+  0% {
+    transform: translate(0, 0) scale(0.3);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(1.2);
+    opacity: 0;
+  }
+}
+.fx-drop {
+  animation: fx-drop var(--dur, 0.8s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes fx-drop {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(var(--fall, 60px));
+    opacity: 0;
+  }
+}
+.fx-bubble {
+  animation: fx-bubble var(--dur, 2.4s) ease-in infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes fx-bubble {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(var(--sway, 10px), calc(var(--rise, 80px) * -1)) scale(1);
+    opacity: 0;
+  }
+}
+.fx-splash {
+  animation: fx-splash 0.7s ease-out forwards;
+}
+@keyframes fx-splash {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(1);
+    opacity: 0;
+  }
+}
+.fx-pop-in {
+  animation: fx-pop-in 0.55s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+}
+@keyframes fx-pop-in {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+.fx-star-fly {
+  animation: fx-star-fly 1.1s ease-out forwards;
+}
+@keyframes fx-star-fly {
+  0% {
+    transform: translate(-50%, 0) scale(0.3);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, -30%) scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -160%) scale(1);
+    opacity: 0;
+  }
+}
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+.glow-pulse {
+  animation: glow-pulse 1.3s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.95), 0 0 0 7px rgba(255, 193, 7, 0.9), 0 0 18px 10px rgba(255, 213, 74, 0.55);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 1), 0 0 0 11px rgba(255, 193, 7, 0.75), 0 0 28px 16px rgba(255, 213, 74, 0.7);
+    transform: scale(1.025);
+  }
+}
+.finger-bounce {
+  animation: finger-bounce 0.9s ease-in-out infinite;
+}
+@keyframes finger-bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -22%);
+  }
+}
+.brush-wiggle {
+  animation: brush-wiggle 0.28s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+@keyframes brush-wiggle {
+  0%,
+  100% {
+    transform: translateX(-1.2%) rotate(-0.8deg);
+  }
+  50% {
+    transform: translateX(1.2%) rotate(0.8deg);
+  }
+}
+.slide-up {
+  animation: slide-up 0.35s ease-out both;
+}
+@keyframes slide-up {
+  from {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.menu-bob {
+  animation: menu-bob 2.6s ease-in-out infinite;
+}
+@keyframes menu-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nia-idle,
+  .nia-walk,
+  .nia-hungry,
+  .nia-sad,
+  .fx-float,
+  .glow-pulse,
+  .menu-bob,
+  .brush-wiggle {
+    animation-duration: 3s;
+  }
+}
+
+.fx-pop-in-simple {
+  animation: pop-simple 0.5s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+@keyframes pop-simple {
+  0% {
+    transform: scale(0.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wipe-bar {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
